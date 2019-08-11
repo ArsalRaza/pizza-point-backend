@@ -16,10 +16,10 @@ const register = function (req, res, next) {
     password: hashedPassword,
     role: admin ? 'admin' : 'user',
   });
-  
+
   user
     .save()
-    .then((user) => { 
+    .then((user) => {
       res.json({
         user,
         success: true,
@@ -68,7 +68,7 @@ const login = function (passport) {
     passport.authenticate('local', { session: false }, (err, user, info) => {
       if (err || !user) {
         return res.status(400).json({
-          message: err,
+          message: 'User Id or Password is wrong',
           user   : user
         });
       }
@@ -78,7 +78,7 @@ const login = function (passport) {
         }
         // Provide data since user is not a proper serialized object
         const token = jwt.sign(user.toObject(), 'secret_restaurant_app');
-          
+
         return res.json({
           success: true,
           token,
@@ -86,7 +86,7 @@ const login = function (passport) {
       });
     })(req, res);
   };
-  
+
 };
 
 module.exports = {
