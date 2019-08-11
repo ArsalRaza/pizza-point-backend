@@ -8,7 +8,7 @@ module.exports = {
   facebook: {
     clientID: 'APP_ID',
     clientSecret: 'SECRET',
-    callbackURL: 'http://localhost:3000/auth/facebook/callback',
+    callbackURL: 'http://72.10.171.250:3000/auth/facebook/callback',
     scope: [
       'email',
       'user_about_me',
@@ -18,7 +18,7 @@ module.exports = {
   google: {
     clientID: 'APP_ID',
     clientSecret: 'SECRET',
-    callbackURL: 'http://localhost:3000/auth/google/callback',
+    callbackURL: 'http://72.10.171.250:3000/auth/google/callback',
     scope: [
       'https://www.googleapis.com/auth/userinfo.profile',
       'https://www.googleapis.com/auth/userinfo.email',
