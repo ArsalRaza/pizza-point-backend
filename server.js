@@ -24,10 +24,19 @@ const JWTStrategy = passportJWT.Strategy;
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('./app/User/model');
 var crypto = require('./app/utils/crypto');
+const cors = require("cors");
+const options = {
+    origin: true,
+    "Access-Control-Allow-Credentials": true,
 
+    "Access-Control-Allow-Origin": true,
+    "Access-Control-Allow-Headers": true,
+    "Access-Control-Expose-Headers": true
+};
 const port = process.env.PORT || 3000;
 
 const app = express();
+app.use(cors(options));
 
 mongoose.connect(config.db);
 
