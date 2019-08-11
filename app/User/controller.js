@@ -68,7 +68,7 @@ const login = function (passport) {
     passport.authenticate('local', { session: false }, (err, user, info) => {
       if (err || !user) {
         return res.status(400).json({
-          message: err.toString(),
+          message: err,
           user   : user
         });
       }
